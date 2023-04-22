@@ -1,7 +1,7 @@
 --drop table Customer
 --drop table Supplier
 --drop table Product
---drop table [Order]
+--drop table [Orders]
 
 IF NOT EXISTS
 			  (
@@ -136,12 +136,12 @@ IF NOT EXISTS
 						 *
 				  FROM
 					  sys.objects
-				  WHERE object_id = OBJECT_ID(N'[dbo].[Order]')
+				  WHERE object_id = OBJECT_ID(N'[dbo].[Orders]')
 						AND type IN(N'U')
 			  )
 BEGIN
 
-	CREATE TABLE [dbo].[Order]
+	CREATE TABLE [dbo].[Orders]
 (
 	[OrderId] UNIQUEIDENTIFIER DEFAULT NEWId(),          
     [ProductId] UNIQUEIDENTIFIER NOT NULL,          
@@ -156,32 +156,32 @@ BEGIN
 )
 	ON [PRIMARY];
 
-	ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Customer] FOREIGN KEY([OrderBy])
+	ALTER TABLE [dbo].[Orders]  WITH CHECK ADD  CONSTRAINT [FK_Order_Customer] FOREIGN KEY([OrderBy])
 	REFERENCES [dbo].[Customer] ([UserId])
 
-	ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Customer]
+	ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Order_Customer]
 
-	ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Product] FOREIGN KEY([ProductId])
+	ALTER TABLE [dbo].[Orders]  WITH CHECK ADD  CONSTRAINT [FK_Order_Product] FOREIGN KEY([ProductId])
 	REFERENCES [dbo].[Product] ([ProductId])
 
-	ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_Product]
+	ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Order_Product]
 
-	ALTER TABLE [dbo].[Order]
+	ALTER TABLE [dbo].[Orders]
 	ADD
 				DEFAULT(GETDATE()) FOR [OrderedOn];
-	ALTER TABLE [dbo].[Order]
+	ALTER TABLE [dbo].[Orders]
 	ADD
 				DEFAULT(GETDATE()) FOR [ShippedOn];
 
-	ALTER TABLE [dbo].[Order] ADD  DEFAULT ((1)) FOR [IsActive];
+	ALTER TABLE [dbo].[Orders] ADD  DEFAULT ((1)) FOR [IsActive];
 END;
 ---------------------------------------------INSERT------------------------------
---INSERT INTO [Order] 
+--INSERT INTO [Orders] 
 --			(ProductId,OrderStatus,OrderType,OrderBy,OrderedOn,ShippedOn,IsActive)
 --	values('891C782F-4459-4AAA-8499-4CEB4180D4C0',1,1,'97219906-3D69-4492-A66A-484A092E5A43',GETDATE(),GETDATE(),1)
 
---INSERT INTO [Order] 
+--INSERT INTO [Orders] 
 --			(ProductId,OrderStatus,OrderType,OrderBy,IsActive)
 --	values('EA418B83-CC51-4271-975F-D0F14AD7CF29',1,1,'D039D5E8-0E1E-4705-BE19-8434AB0AB059',1)
 
---select * from [Order]
+--select * from [Orders]

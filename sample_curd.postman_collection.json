@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "3f897ed7-517d-42c8-abc4-395044469ad4",
+		"name": "sample_curd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11598842"
+	},
+	"item": [
+		{
+			"name": "https://localhost:44375/Customer/Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44375/Customer/Details",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44375",
+					"path": [
+						"Customer",
+						"Details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44375/Customer/GetActiveOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44375/Customer/GetActiveOrders",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44375",
+					"path": [
+						"Customer",
+						"GetActiveOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44375/Customer/Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"firstName\": \"test\",\r\n        \"lastName\": \"three\",\r\n        \"email\": \"test3@yopmail.com\",\r\n        \"userName\": \"test3\",\r\n        \"isActive\": false,\r\n        \"createdOn\": \"30-9-2020T14:30:00\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44375/Customer/Create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44375",
+					"path": [
+						"Customer",
+						"Create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44375/Customer/Edit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"userId\": \"97219906-3D69-4492-A66A-484A092E5A43\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44375/Customer/Edit",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44375",
+					"path": [
+						"Customer",
+						"Edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44375/Customer/Delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"userId\": \"97219906-3D69-4492-A66A-484A092E5A41\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44375/Customer/Delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44375",
+					"path": [
+						"Customer",
+						"Delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
